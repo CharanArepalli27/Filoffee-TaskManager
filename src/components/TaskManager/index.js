@@ -13,13 +13,11 @@ const TaskManager = () => {
   const [currentTaskId, setCurrentTaskId] = useState(null);
   const [isUpdate, setIsUpdate] = useState(false);
 
-  //! To get the tasks from LocalStorage on first render
   useEffect(() => {
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     setTasks(savedTasks);
   }, []);
 
-  //! To store tasks in LocalStorage whenever the task changes
   useEffect(() => {
     if (tasks.length > 0) {
       localStorage.setItem("tasks", JSON.stringify(tasks));
